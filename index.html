@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cáncer de mama: prevenir es amar</title>
+<meta name="description" content="Información sobre el cáncer de mama: qué es, etapas, prevención, detección temprana y tratamiento. Proyecto final de Informática.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#3a1230; --plum:#8e1f63; --rose:#e8789f; --blush:#fde8ef; --paper:#fffafb; --gold:#c9961a; --line:#f2c6d6;
+  --serif:"Fraunces",Georgia,serif; --sans:"Nunito Sans",system-ui,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;font-size:1.05rem}
+img,video{max-width:100%;display:block}
+a{color:var(--plum)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1080px,92%);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 .6em}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--plum)}
+h3{font-size:1.3rem}
+section{padding:4.5rem 0}
+
+/* menú */
+header.nav{position:sticky;top:0;z-index:20;background:rgba(255,250,251,.95);backdrop-filter:blur(6px);border-bottom:2px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:800;color:var(--plum);text-decoration:none;font-size:1.15rem}
+.nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a.l{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--ink)}
+.nav a.l:hover{color:var(--plum);text-decoration:underline}
+
+/* portada */
+.hero{background:var(--blush);padding:3.5rem 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:800;color:var(--plum);margin-bottom:.3em}
+.hero p.lead{font-size:1.25rem;max-width:34ch}
+.btn{display:inline-block;background:var(--plum);color:#fff;padding:.8rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;margin-top:.8rem}
+.btn:hover{background:var(--ink)}
+.hero figure{margin:0;position:relative}
+.hero img{border-radius:10px;border:8px solid #fff;box-shadow:0 14px 30px rgba(142,31,99,.25);transform:rotate(2deg)}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}}
+
+/* qué es */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.quote{font-family:var(--serif);font-size:1.6rem;color:var(--plum);border-left:6px solid var(--rose);padding-left:1.2rem;margin:0}
+
+/* etapas */
+.stage-band{background:var(--ink);color:#fff}
+.stage-band h2{color:#ffd9e6}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem}
+@media(max-width:800px){.sizes{grid-template-columns:1fr}}
+.size{background:#4c1a41;border-radius:14px;padding:1.4rem}
+.dot{display:block;border-radius:50%;background:var(--rose);margin-bottom:.8rem}
+.size:nth-child(1) .dot{width:18px;height:18px}
+.size:nth-child(2) .dot{width:34px;height:34px}
+.size:nth-child(3) .dot{width:56px;height:56px}
+.size p{margin:0;color:#f6dbe6}
+.callout{margin-top:1.8rem;background:#fff;color:var(--ink);border-radius:14px;padding:1.4rem 1.6rem;border-left:8px solid var(--gold)}
+.callout h3{color:var(--plum)}
+
+/* prevención */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+@media(max-width:700px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:2px solid var(--line);border-radius:16px;padding:1.3rem 1.5rem}
+.card h3{color:var(--plum);margin-bottom:.3em}
+.card p{margin:0}
+
+/* detección */
+.detect{background:var(--blush)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:.2rem 0 1rem 3.2rem}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--plum);color:#fff;font-weight:700;display:grid;place-items:center}
+.pills{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0 0;padding:0;list-style:none}
+.pills li{background:#fff;border:2px solid var(--rose);border-radius:999px;padding:.4rem 1rem;font-weight:700}
+
+/* videos */
+.videos{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media(max-width:800px){.videos{grid-template-columns:1fr}}
+.videos figure{margin:0}
+.videos video{width:100%;border-radius:12px;background:#000;border:4px solid var(--line)}
+figcaption{font-size:.95rem;margin-top:.5rem;color:#6b3a5c}
+
+/* galería */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:800px){.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.gallery{grid-template-columns:1fr}}
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;cursor:zoom-in;border:3px solid #fff;box-shadow:0 4px 12px rgba(58,18,48,.15)}
+.gallery .wide{grid-column:span 2}
+@media(max-width:480px){.gallery .wide{grid-column:auto}}
+dialog{border:0;padding:0;background:transparent;max-width:94vw}
+dialog::backdrop{background:rgba(58,18,48,.85)}
+dialog img{max-height:90vh;border-radius:8px}
+
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--plum)}
+.tes{display:inline-block;background:var(--gold);color:#2b1a00;font-weight:700;padding:.35rem .9rem;border-radius:999px;font-size:.95rem;margin-bottom:1rem}
+.escuela{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem}
+.escuela img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #fff}
+footer a{color:#fff;font-weight:700}
+footer{background:var(--plum);color:#fff;padding:2.5rem 0;text-align:center}
+footer p{margin:.3rem 0}
+.aviso{font-size:.9rem;opacity:.9;max-width:70ch;margin:1rem auto 0}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="img/logo.png" alt="Logo del colegio Great Freedom"><span>Octubre Rosa</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a class="l" href="#que-es">Qué es</a></li>
+        <li><a class="l" href="#etapas">Etapas</a></li>
+        <li><a class="l" href="#prevencion">Prevención</a></li>
+        <li><a class="l" href="#deteccion">Detección</a></li>
+        <li><a class="l" href="#tratamiento">Tratamiento</a></li>
+        <li><a class="l" href="#videos">Videos</a></li>
+        <li><a class="l" href="#galeria">Galería</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tes">Trabajo Educativo Social</span>
+        <h1>Cáncer de mama</h1>
+        <p class="lead">Prevenir es amar. Detectar a tiempo puede salvar una vida.</p>
+        <a class="btn" href="#deteccion">Aprende a revisarte</a>
+      </div>
+      <figure>
+        <img src="img/afiche-portada.jpg" alt="Afiche escolar sobre el cáncer de mama con letras doradas, listón rosa y flores de papel">
+      </figure>
+    </div>
+  </div>
+
+  <section id="que-es">
+    <div class="wrap two">
+      <div>
+        <h2>¿Qué es el cáncer de mama?</h2>
+        <p>Es una enfermedad en la que células del tejido de la mama crecen sin control y forman un tumor. Puede afectar sobre todo a mujeres, aunque también puede aparecer en hombres.</p>
+        <p>Cuando se descubre en una etapa temprana, el tratamiento tiene muchas más posibilidades de funcionar. Por eso conocer tu cuerpo y hacerte chequeos es tan importante.</p>
+      </div>
+      <p class="quote">El rosa no es un color: es un símbolo de esperanza y vida.</p>
+    </div>
+  </section>
+
+  <section id="etapas" class="stage-band">
+    <div class="wrap">
+      <h2>Etapas: el tamaño del tumor importa</h2>
+      <p>Los médicos clasifican el cáncer en etapas según el tamaño del tumor y si se ha extendido a los ganglios linfáticos (pequeñas glándulas que forman parte de las defensas del cuerpo).</p>
+      <div class="sizes">
+        <div class="size"><span class="dot"></span><h3>Como un frijol o una nuez</h3><p>Entre 2 y 5 cm de diámetro, como referencia, el tamaño de una nuez o una ciruela pequeña.</p></div>
+        <div class="size"><span class="dot"></span><h3>Mayor de 5 cm</h3><p>En algunos casos el tumor puede medir más de 5 cm.</p></div>
+        <div class="size"><span class="dot"></span><h3>Ganglios linfáticos</h3><p>Pueden estar afectados los ganglios de la axila (axilares) o los cercanos al mismo lado del tumor.</p></div>
+      </div>
+      <div class="callout">
+        <h3>Etapa II</h3>
+        <p>En la etapa 2 el tumor se considera más grande o ya comenzó a extenderse a los ganglios linfáticos cercanos, pero todavía no se ha propagado a otras partes lejanas del cuerpo (no hay metástasis).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prevencion">
+    <div class="wrap">
+      <h2>Prevención</h2>
+      <p>No existe una forma de evitarlo al 100 %, pero estos hábitos reducen el riesgo:</p>
+      <div class="cards">
+        <div class="card"><h3>Mantener un peso saludable</h3><p>Sobre todo después de la menopausia, porque el tejido graso produce más estrógeno, una hormona que puede estimular algunos cánceres.</p></div>
+        <div class="card"><h3>Hacer actividad física</h3><p>Al menos 150 minutos de ejercicio de intensidad moderada por semana.</p></div>
+        <div class="card"><h3>Limitar el alcohol</h3><p>Mientras menos alcohol, menor riesgo. Lo ideal es evitarlo o consumirlo muy poco.</p></div>
+        <div class="card"><h3>Evitar el tabaco</h3><p>Fumar se relaciona con varios tipos de cáncer, incluido el de mama.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="deteccion" class="detect">
+    <div class="wrap two">
+      <div>
+        <h2>Detección temprana</h2>
+        <p>Detectar el cáncer en etapas iniciales permite que los tratamientos sean más efectivos y menos agresivos.</p>
+        <ul class="pills">
+          <li>Autoexploración mensual</li>
+          <li>Examen clínico</li>
+          <li>Mamografía</li>
+        </ul>
+        <p style="margin-top:1.2rem">Se recomienda empezar a hacerse mamografías alrededor de los 40 años, o antes si un médico lo indica por antecedentes familiares.</p>
+      </div>
+      <div>
+        <h3>Cómo hacer la autoexploración</h3>
+        <ol class="steps">
+          <li>Párate frente al espejo y observa tus mamas: forma, tamaño, color de la piel y pezones.</li>
+          <li>Levanta los brazos y busca cambios, hundimientos o bultos visibles.</li>
+          <li>Con las yemas de los dedos, palpa toda la mama y la axila con movimientos circulares.</li>
+          <li>Repite acostada. Hazlo una vez al mes, unos días después de la menstruación.</li>
+          <li>Si notas un bulto, secreción o cambio extraño, acude al médico. No es motivo para asustarse, pero sí para revisarse.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="tratamiento">
+    <div class="wrap">
+      <h2>Tratamiento</h2>
+      <p>El tratamiento lo decide un equipo médico según la etapa y el tipo de cáncer. Estas son las opciones más comunes, que a veces se combinan:</p>
+      <div class="cards">
+        <div class="card"><h3>Cirugía</h3><p>Retira el tumor o parte del tejido afectado.</p></div>
+        <div class="card"><h3>Radioterapia</h3><p>Usa radiación dirigida para destruir células cancerosas.</p></div>
+        <div class="card"><h3>Quimioterapia</h3><p>Medicamentos que eliminan o frenan las células cancerosas.</p></div>
+        <div class="card"><h3>Terapia hormonal y dirigida</h3><p>Bloquean las hormonas o los mecanismos que ayudan al tumor a crecer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" style="background:var(--blush)">
+    <div class="wrap">
+      <h2>Videos</h2>
+      <div class="videos">
+        <figure>
+          <video controls preload="metadata" poster="img/poster-oficial.jpg"><source src="video/video-oficial.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video>
+          <figcaption>Video oficial sobre el cáncer de mama</figcaption>
+        </figure>
+        <figure>
+          <video controls preload="metadata" poster="img/poster-ejercicio.jpg"><source src="video/ejercicio.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video>
+          <figcaption>Video del ejercicio sobre cáncer de mama</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <h2>Nuestro trabajo en clase</h2>
+      <p>Así preparamos y presentamos el proyecto sobre el cáncer de mama en el colegio. Toca una foto para verla grande.</p>
+      <div class="gallery">
+        <figure class="wide"><img src="img/equipo.jpg" alt="El grupo de estudiantes presentando el afiche rosa 'Cáncer de mama: Prevención, Etapa II'" loading="lazy"></figure>
+        <figure><img src="img/afiche-completo.jpg" alt="Afiche de cáncer de mama visto de lado con flores de papel" loading="lazy"></figure>
+        <figure><img src="img/trabajo-1.jpg" alt="Estudiante leyendo una tarjeta mientras se arma el afiche sobre la mesa" loading="lazy"></figure>
+        <figure><img src="img/trabajo-2.jpg" alt="Estudiantes decorando el afiche con escarcha dorada" loading="lazy"></figure>
+        <figure><img src="img/afiche-portada.jpg" alt="Afiche principal con el título Cáncer de mama" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="visor"><img id="visor-img" alt=""></dialog>
+
+<footer>
+  <div class="wrap">
+    <div class="escuela">
+      <img src="img/logo.png" alt="Logo del colegio Great Freedom">
+      <div><p><strong>Great Freedom · Innovación, Ciencia, Estudio</strong></p>
+      <p>Teléfono del colegio: <a href="tel:+50494614645">+504 9461-4645</a></p></div>
+    </div>
+    <p><strong>Trabajo Educativo Social</strong> · Octubre Rosa, prevenir es amar</p>
+    <p>Proyecto final de Informática · Tercer año</p>
+    <p class="aviso">Esta página tiene fines educativos y no reemplaza la consulta con un profesional de la salud.</p>
+  </div>
+</footer>
+
+<script>
+const visor=document.getElementById('visor'),vi=document.getElementById('visor-img');
+document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{vi.src=i.src;vi.alt=i.alt;visor.showModal();}));
+visor.addEventListener('click',()=>visor.close());
+</script>
+</body>
+</html>
